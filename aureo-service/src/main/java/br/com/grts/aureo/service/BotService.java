@@ -2,6 +2,8 @@ package br.com.grts.aureo.service;
 
 import br.com.grts.aureo.domain.Bot;
 
+import java.util.List;
+
 public interface BotService {
 
   /**
@@ -11,4 +13,22 @@ public interface BotService {
    * @return found Bot
    */
   Bot findById(String id);
+
+  /**
+   * @param bot
+   * @return created bot
+   */
+  Bot create(Bot bot);
+
+  /**
+   * @return all bots
+   */
+  Iterable<Bot> findAll();
+
+  /**
+   * Validates and applies incoming bot updates
+   *
+   * @param update
+   */
+  void saveChanges(Bot update);
 }
