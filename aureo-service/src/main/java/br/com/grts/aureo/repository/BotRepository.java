@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BotRepository extends CrudRepository<Bot, Long> {
+
+  Bot findById(String id);
 }

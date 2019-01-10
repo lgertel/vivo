@@ -19,9 +19,10 @@ public class BotRepositoryTest {
   @Test
   public void shouldFindById() {
     Bot stub = getStubBot();
-    Bot bot = repository.save(stub);
+    repository.save(stub);
 
-    assertEquals(stub.getName(), bot.getName());
+    Bot found = repository.findById(stub.getId());
+    assertEquals(stub.getName(), found.getName());
   }
 
   private Bot getStubBot() {
