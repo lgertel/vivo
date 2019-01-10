@@ -1,11 +1,26 @@
 version: '2.1'
 services:
   aureo-service:
+    environment:
+      MONGODB_PASSWORD: $MONGODB_PASSWORD
+      SERVER_PORT: 8080
+      MONGODB_URI: mongodb://aureo-mongodb:27017/aureo
+      MONGODB_STATUS_HOST: aureo-mongodb
+      MONGODB_STATUS_PORT: 28017
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
     build: aureo-service
     ports:
-      - 6000:6000
+      - 8888:8080
 
   aureo-mongodb:
-    build: mongodb
+    image: mongo:3.4
+    volumes:
+      - ./_data:/data/db
     ports:
-      - 26000:27017
+      - 12345:27017
+      - 23456:28017
+    command: ["mongod", "--rest"]
