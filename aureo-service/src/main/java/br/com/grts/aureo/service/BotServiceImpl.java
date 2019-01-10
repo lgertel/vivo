@@ -16,8 +16,8 @@ public class BotServiceImpl implements BotService {
   private BotRepository repository;
 
   @Autowired
-  public BotServiceImpl(BotRepository botRepository) {
-    this.repository = botRepository;
+  public BotServiceImpl(BotRepository repository) {
+    this.repository = repository;
   }
 
   /**

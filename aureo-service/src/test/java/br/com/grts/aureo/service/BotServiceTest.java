@@ -30,7 +30,7 @@ public class BotServiceTest {
     bot.setId("1azxd123a");
     bot.setName("SimpleBOT");
 
-    when(botService.findById(bot.getId())).thenReturn(bot);
+    when(repository.findById(bot.getId())).thenReturn(java.util.Optional.of(bot));
     Bot found = botService.findById(bot.getId());
 
     assertEquals(bot, found);
@@ -67,6 +67,4 @@ public class BotServiceTest {
 
     assertEquals(original.getName(), update.getName());
   }
-
-
 }

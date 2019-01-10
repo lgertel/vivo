@@ -2,8 +2,6 @@ package br.com.grts.aureo.service;
 
 import br.com.grts.aureo.domain.Bot;
 
-import java.util.List;
-
 public interface BotService {
 
   /**
