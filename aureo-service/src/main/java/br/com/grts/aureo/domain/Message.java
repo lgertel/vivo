@@ -6,25 +6,29 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "conversations")
-public class Conversation {
+@Document(collection = "messages")
+public class Message {
 
   @Id
   private String id;
 
   @NotNull
-  private String botId;
+  private String conversationId;
+
+  @NotNull
+  private String text;
+
+  @NotNull
+  private String from;
+
+  @NotNull
+  private String to;
 
   private Date timestamp;
-
-  @Valid
-  private List<Message> messages;
 }

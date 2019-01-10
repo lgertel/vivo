@@ -1,7 +1,6 @@
 package br.com.grts.aureo.service;
 
 import br.com.grts.aureo.domain.Conversation;
-import br.com.grts.aureo.repository.BotRepository;
 import br.com.grts.aureo.repository.ConversationRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

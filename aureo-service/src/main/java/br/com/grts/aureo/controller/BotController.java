@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 public class BotController {
@@ -18,7 +17,7 @@ public class BotController {
     this.botService = botService;
   }
 
-  @GetMapping
+  @GetMapping("/bots")
   public Iterable<Bot> listAllBots() {
     return botService.findAll();
   }

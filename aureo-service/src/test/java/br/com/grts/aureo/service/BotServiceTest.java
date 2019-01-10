@@ -62,7 +62,7 @@ public class BotServiceTest {
     update.setId("botId");
     update.setName("coolBOT");
 
-    when(botService.findById(original.getId())).thenReturn(original);
+    when(repository.findById(original.getId())).thenReturn(java.util.Optional.of(original));
     botService.saveChanges(update);
 
     assertEquals(original.getName(), update.getName());
