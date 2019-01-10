@@ -63,4 +63,12 @@ public class BotServiceImpl implements BotService {
     bot.setName(update.getName());
     repository.save(bot);
   }
+
+  @Override
+  public void delete(String id) {
+    Bot found = findById(id);
+    Assert.notNull(found, "can't find bot with id: " + id);
+
+    repository.delete(found);
+  }
 }

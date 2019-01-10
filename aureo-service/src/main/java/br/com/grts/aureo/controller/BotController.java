@@ -36,4 +36,9 @@ public class BotController {
   public void saveCurrentBot(@Valid @RequestBody Bot bot) {
     botService.saveChanges(bot);
   }
+
+  @DeleteMapping("/bots/{id}")
+  public void deleteCurrentBot(@PathVariable String id) {
+    botService.delete(id);
+  }
 }

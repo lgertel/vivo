@@ -29,4 +29,11 @@ public interface BotService {
    * @param update
    */
   void saveChanges(Bot update);
+
+  /**
+   * Delete existing bot
+   *
+   * @param id
+   */
+  void delete(String id);
 }

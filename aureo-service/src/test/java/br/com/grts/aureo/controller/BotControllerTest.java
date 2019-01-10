@@ -100,4 +100,14 @@ public class BotControllerTest {
     mockMvc.perform(put("/bots/" + bot.getId()).contentType(MediaType.APPLICATION_JSON).content(json))
         .andExpect(status().isBadRequest());
   }
+
+  @Test
+  public void shouldDeleteBot() throws Exception{
+    final Bot bot = new Bot();
+    bot.setId("botId");
+    bot.setId("this is a bot");
+
+    mockMvc.perform(delete("/bots/" + bot.getId()))
+        .andExpect(status().isOk());
+  }
 }
