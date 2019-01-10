@@ -1,6 +1,7 @@
 package br.com.grts.aureo.service;
 
 import br.com.grts.aureo.domain.Message;
+import br.com.grts.aureo.repository.ConversationRepository;
 import br.com.grts.aureo.repository.MessageRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +22,9 @@ public class MessageServiceTest {
 
   @Mock
   private MessageRepository repository;
+
+  @Mock
+  private ConversationRepository conversationRepository;
 
   @Before
   public void setup() {
