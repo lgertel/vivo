@@ -22,8 +22,6 @@ For this challenge, I'll implement a simple Microservice in Java based on [Micro
 # Functional Services
 The Aureo application was decomposed into one core microservices. Independent of the future size, all of them should be independently deployable applications, organized around certain business domains.
 
-Add image here
-
 ## Aureo Service
 In this service there are two main resources: bots and messages.
 
