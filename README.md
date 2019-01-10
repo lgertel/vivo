@@ -1,7 +1,5 @@
 # Aureo | Bot conversation platform
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 # Overview
 This example project is a simple implementation of a ChatBOT platform that handles with bots and their conversations. Even with a small amount of functionality in this first version, the goal of this architecture is to provide a solution that serves large companies and has a large number of calls made over the Internet or Telephone.
 
