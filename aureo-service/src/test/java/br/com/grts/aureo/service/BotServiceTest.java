@@ -8,7 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 public class BotServiceTest {
@@ -40,4 +40,33 @@ public class BotServiceTest {
   public void shouldFailWhenIdIsEmpty() {
     botService.findById("");
   }
+
+  @Test
+  public void shouldCreateBot() {
+    Bot bot = new Bot();
+    bot.setName("SavedBOT");
+
+    Bot created = botService.create(bot);
+    assertEquals(bot.getName(), created.getName());
+
+    verify(repository, times(1)).save(bot);
+  }
+
+  @Test
+  public void shouldSaveChangesWhenUpdatedBotGiven() {
+    Bot original = new Bot();
+    original.setId("botId");
+    original.setName("coolB");
+
+    final Bot update = new Bot();
+    update.setId("botId");
+    update.setName("coolBOT");
+
+    when(botService.findById(original.getId())).thenReturn(original);
+    botService.saveChanges(update);
+
+    assertEquals(original.getName(), update.getName());
+  }
+
+
 }
