@@ -24,15 +24,30 @@ The Aureo application was decomposed into one core microservices. Independent of
 
 Add image here
 
-#### Aureo Service
-Stores bots information and the messages that each bot has received or sended. In this service there are two main resources: bots and messages.
+## Aureo Service
+In this service there are two main resources: bots and messages.
+
+####Bots
+Stores bots information and the messages that each bot has received or sended.
 
 Method	| Path	| Description	|
 ------------- | ------------------------- | ------------- |
-GET	| /bots/:id	| Get the specified bot settings
-POST	| /bots	| Create a new bot to handle messages
+GET	    | /bots/:id	| Get the specified bot settings
+POST	| /bots	    | Create a new bot to handle messages
+PUT	    | /bots:id	| Update existing bot with informations
+DELETE	| /bots:id	| Delete existing bot
+
+####Messages
+Stores messages information. You can retrieve information about messages, grouping by conversations.
+
+Method	| Path	| Description	|
+------------- | ------------------------- | ------------- |
+GET	    | /messages/:id	| Get the specific message details
+GET	    | /messages?conversationId=:conversationId	| Get all messages in a conversation
+POST    | /messages	    | Create a new message
+
 
 #### Notes
-- Each microservice has it's own database, so there is no way to bypass API and access persistance data directly.
+- Each microservice should have it's own database, so there is no way to bypass API and access persistance data directly.
 - In this project, I use MongoDB as a primary database for the Aureo service. It might also make sense to have a polyglot persistence architecture (сhoose the type of db that is best suited to service requirements).
 - Service-to-service communication: Common practice in a real-world systems is to use combination of interaction styles. For example, perform synchronous GET request to retrieve data and use asynchronous approach via Message broker for create/update operations in order to decouple services and buffer messages. However, this brings us to the [eventual consistency](http://martinfowler.com/articles/microservice-trade-offs.html#consistency) world. It would also good idea to implement a DTO layer to handle the exposure of objects and make possible to easly change business data centric logic.
