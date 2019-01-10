@@ -1,0 +1,11 @@
+version: '2.1'
+services:
+  aureo-service:
+    build: aureo-service
+    ports:
+      - 6000:6000
+
+  aureo-mongodb:
+    build: mongodb
+    ports:
+      - 26000:27017
