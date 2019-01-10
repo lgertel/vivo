@@ -1,6 +1,6 @@
 package br.com.grts.aureo.repository;
 
-import br.com.grts.aureo.domain.Bot;
+import br.com.grts.aureo.domain.Conversation;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,31 +11,33 @@ import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 
+
 @RunWith(SpringRunner.class)
 @DataMongoTest
-public class BotRepositoryTest {
+public class ConversationRepositoryTest {
 
   @Autowired
-  private BotRepository repository;
+  private ConversationRepository repository;
 
   @Test
   public void shouldFindById() {
-    Bot stub = getStubBot();
+    Conversation stub = getSubConversation();
     repository.save(stub);
 
-    Bot found = null;
-    Optional<Bot> byId = repository.findById(stub.getId());
+    Conversation found = null;
+    Optional<Conversation> byId = repository.findById(stub.getId());
     if(byId.isPresent()) {
       found = byId.get();
+
       assertEquals(stub.getId(), found.getId());
     }
   }
 
-  private Bot getStubBot() {
-    Bot bot = new Bot();
-    bot.setId("stubBot");
-    bot.setName("I'm an awesome bot");
+  private Conversation getSubConversation() {
+    Conversation conversation = new Conversation();
+    conversation.setId("cr4zyConvers4ti0n");
+    conversation.setBotId("imabotid");
 
-    return bot;
+    return conversation;
   }
 }
